@@ -56,8 +56,8 @@ router.put('/:id', async (req, res) => {
   // update a category by its `id` value
   try{
   // Check if record exists in db
-   const atp= await Category.findByPk(req.params.id)
-    if (atp) {    
+   const category= await Category.findByPk(req.params.id)
+    if (category) {    
           await Category.update(req.body, {
             where: { id: req.params.id }
           });

@@ -9,7 +9,7 @@ router.get('/',async (req, res) => {
   try{
     const allTag = await Tag.findAll({
       include: [{model: Product}],
-      //include: [{model: Tag}]
+      // include: [{model: ProductTag}]
     });
     if (allTag.length>0) 
     {
@@ -51,7 +51,7 @@ router.post('/', async (req, res) => {
     res.status(200).json(newTag);
     }
     catch(err){
-      res.status(400).json("Tag cannot be added. Please check the details and try again.");
+      res.status(400).send("Tag cannot be added. Please check the details and try again.");
     }
 });
 
